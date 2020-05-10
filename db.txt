@@ -1,0 +1,15 @@
+
+
+//create book table
+const booksql = 'CREATE TABLE IF NOT EXISTS book (book_id INTEGER PRIMARY KEY AUTOINCREMENT, bookName TEXT,Author TEXT,price INTEGER)' ;
+db.run(booksql);
+
+//create order table
+const ordersql = 'CREATE TABLE IF NOT EXISTS orders(order_id INTEGER PRIMARY KEY AUTOINCREMENT,user_name TEXT,
+email TEXT,password TEXT, role TEXT,book_id INTEGER NOT NULL UNIQUE, 
+CONSTRAINT fk_books FOREIGN KEY (book_id) REFERENCES book (book_id));' ;
+db.run(ordersql);
+
+//create payment table
+const paymentsql = 'CREATE TABLE IF NOT EXISTS payments (payment_id INTEGER PRIMARY KEY AUTOINCREMENT,order_id INTEGER NOT NULL UNIQUE,book_id INTEGER NOT NULL UNIQUE CONSTRAINT fk_book_order,Payment_Medium TEXT,amount INTEGER,FOREIGN KEY (order_id) REFERENCES order (order_id),FOREIGN KEY (book_id) REFERENCES book (book_id))' ;
+db.run(paymentsql);

@@ -1,0 +1,16 @@
+{
+  "name": "coursecart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "book.js",
+  "dependencies": {
+    "twilio": "^3.43.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "./book.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
